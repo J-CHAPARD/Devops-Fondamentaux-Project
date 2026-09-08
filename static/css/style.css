@@ -1,0 +1,72 @@
+
+/* Global Styles*/
+* {
+    margin:0;
+    padding:0;
+}
+
+html {
+    font-size: 16px;
+}
+
+/* ======================================================================= */
+/* Specific Styles*/
+main{
+    width: fit-content;
+    margin: 0.3rem;
+    padding: 0.6rem;
+    border: 2px dotted black;
+    
+    & h1 {
+        font: normal 1rem auto;
+        text-align: center;
+        margin: 1rem auto 3rem;
+        
+    }
+    
+    & div.group-card {
+        column-gap: 0.6em;
+        width: fit-content;
+        display:flex;
+        flex-direction: row;
+        & > .card { 
+            /* each card as same size & size growth (from same absolute basis)*/
+            flex: 1 0 0px;
+        }
+    }
+    
+    & article.card {
+        & div.img-container {
+            /* Take as much space as possible*/
+            width: 100%;
+            height: 100%;
+            position: relative;
+            /* Without offset. Only needed to be nearest positioned ancestor of it child.
+             *   see https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/position#absolute_positioning**/
+            & img {
+                /* Normal placement, no intrinsic size */
+                position:absolute; top:0; left:0; 
+                /* Take size of parent*/
+                width: 100%;
+                height: 100%;
+                /* Adjust size keeping img ratio*/
+                object-fit: contain;
+            }
+        }
+        
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: space-between;
+        align-items: center;
+        
+        aspect-ratio: 3/4;
+        min-width: 3em;
+        padding: 0.6em;
+        border: 0.15em solid black;
+        & h2 {
+            text-align: center;
+            font-size: 0.75em;
+            font-weight: normal;
+        }
+    }
+}
