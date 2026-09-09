@@ -68,5 +68,10 @@ main{
             font-size: 0.75em;
             font-weight: normal;
         }
+        & p.card-HP {
+            align-self: flex-end;
+            font: bold 0.6em auto;
+            & span { font-size: 0.6em; }
+        }
     }
 }
