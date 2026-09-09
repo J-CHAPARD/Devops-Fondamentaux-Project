@@ -28,7 +28,7 @@ main{
         column-gap: 0.6em;
         width: fit-content;
         display:flex;
-        flex-direction: row;
+        flex-flow: row nowrap;
         & > .card { 
             /* each card has same size (& same size growth from same absolute basis)*/
             flex: 1 0 0px;
