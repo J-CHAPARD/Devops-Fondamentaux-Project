@@ -60,8 +60,8 @@ main{
         align-items: center;
         
         aspect-ratio: 3/4;
-        min-width: 3em;
-        padding: 0.6em;
+        min-width: 4em;
+        padding: 1em;
         border: 0.15em solid black;
         & h2 {
             text-align: center;
@@ -73,5 +73,29 @@ main{
             font: bold 0.6em auto;
             & span { font-size: 0.6em; }
         }
+        & div.group-type {
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: center;
+            font-size: 0.5em;
+            gap: 0.4em;
+        }
     }
 }
+
+.type-icon{
+    font-height: 1.5em;
+    width: 5.5em;
+    padding: 1px;
+    border: 1px solid rgba(0,0,0, 0.2);
+    border-radius: 0.3em;
+
+    color: #fff;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
+    text-align: center;
+    text-transform: uppercase;
+}
+.type-ghost{    background-color: #66b; }
+.type-fairy{    background-color: #e9e; }
+.type-electric{ background-color: #fc3; }
+.type-normal{   background-color: #aa9; }
