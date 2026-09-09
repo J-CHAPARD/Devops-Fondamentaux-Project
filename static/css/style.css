@@ -12,7 +12,6 @@ html {
 /* ======================================================================= */
 /* Specific Styles*/
 main{
-    width: fit-content;
     margin: 0.3rem;
     padding: 0.6rem;
     border: 2px dotted black;
@@ -25,14 +24,10 @@ main{
     }
     
     & div.group-card {
-        column-gap: 0.6em;
-        width: fit-content;
-        display:flex;
-        flex-flow: row nowrap;
-        & > .card { 
-            /* each card has same size (& same size growth from same absolute basis)*/
-            flex: 1 0 0px;
-        }
+        /* Desktop : les 6 cartes sur une ligne */
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 0.6em;
     }
     
     & article.card {
@@ -99,3 +94,25 @@ main{
 .type-fairy{    background-color: #e9e; }
 .type-electric{ background-color: #fc3; }
 .type-normal{   background-color: #aa9; }
+/* ======================================================================= */
+/* Responsive */
+
+/* Tablette : 3 cartes par ligne */
+@media (max-width: 1024px) {
+    main > div.group-card {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Mobile : une carte par ligne */
+@media (max-width: 600px) {
+    main > div.group-card {
+        /* colonne unique plafonnee : la carte seule ne doit pas prendre
+         * toute la hauteur de l'ecran. Le plafond est porte par la colonne
+         * et non par la carte, sinon des marges auto sur l'item de grid
+         * annulent l'etirement et chaque carte se dimensionne sur son
+         * propre contenu (largeurs inegales). */
+        grid-template-columns: minmax(0, 20em);
+        justify-content: center;
+    }
+}
